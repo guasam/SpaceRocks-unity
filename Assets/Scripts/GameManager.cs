@@ -1,15 +1,22 @@
 ﻿using Codesbiome.U2D;
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Spacerocks
 {
     public class GameManager : MonoBehaviour
     {
+        private CameraAspector ca;
+
         public static GameManager Instance = null;
         public static Vector2 RoomSize;
-        private CameraAspector ca;
+        public static int PPU;
+
+        public static Vector2 ScreenCenterPosition
+        {
+            get { return new Vector2(RoomSize.x / PPU * 0.5f, RoomSize.y / PPU * 0.5f); }
+        }
 
         /// <summary>
         /// Awake is called when script instance is being loaded
@@ -24,6 +31,7 @@ namespace Spacerocks
 
             // Assign properties
             RoomSize = ca.roomSize;
+            PPU = ca.ppu;
         }
 
         /// <summary>
@@ -42,7 +50,6 @@ namespace Spacerocks
 
         private void singleton()
         {
-            // Initialize singleton
             if (Instance == null) Instance = this;
             else if (Instance != this) Destroy(gameObject);
         }
