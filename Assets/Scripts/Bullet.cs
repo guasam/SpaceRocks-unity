@@ -6,7 +6,7 @@ namespace Spacerocks
     public class Bullet : MonoBehaviour
     {
         private Rigidbody2D rb;
-        private float speed = 5f;
+        private float speed = 20f;
 
         private void Awake()
         {
@@ -38,6 +38,14 @@ namespace Spacerocks
             {
                 Destroy(collision.gameObject);  // Destroy asteroid
                 Destroy(gameObject);            // Destroy bullet
+
+                // Spawn debris
+                Debris.Spawn(collision.transform.position, 10);
+
+                // Collision with large asteroid
+                if (collision.collider.name.Contains("Asteroid_large"))
+                {
+                }
             }
         }
 

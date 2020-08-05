@@ -29,5 +29,55 @@ namespace Spacerocks
             // Apply transform warp
             MotionHelper.WarpTransform(transform, GameManager.RoomSize, 1f);
         }
+
+        /// <summary>
+        /// Spawn asteroid
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static GameObject Spawn(int size)
+        {
+            return Instantiate(GameManager.Instance.asteroidTypes[size]);
+        }
+
+        /// <summary>
+        /// Spawn asteroid and return Script instance
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static Asteroid SpawnInstance(int size)
+        {
+            return Spawn(size).GetComponent<Asteroid>();
+        }
+
+        /// <summary>
+        /// Changes asteroid position to a random slot
+        /// </summary>
+        public void RandomPositionSlots()
+        {
+            // Cache width and height
+            var width = GameManager.RoomSize.x;
+            var height = GameManager.RoomSize.y;
+
+            // Bottom section spawn slots
+            var bottomSlots = new float[]
+            {
+                Random.Range(0f, width * 0.2f),
+                Random.Range(width * 0.8f, width)
+            };
+
+            // Top section spawn slots
+            var topSlots = new float[]
+            {
+                Random.Range(0 , height * 0.2f),
+                Random.Range(height * 0.8f, height)
+            };
+
+            var posX = MathHelper.Choose(bottomSlots);
+            var posY = MathHelper.Choose(topSlots);
+
+            // Apply asteroid position to current slot
+            transform.position = new Vector2(posX, posY);
+        }
     }
 }

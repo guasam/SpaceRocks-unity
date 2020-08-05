@@ -1,4 +1,5 @@
 ﻿using Codesbiome.U2D;
+using Codesbiome.U2D.Helpers;
 using UnityEngine;
 
 namespace Spacerocks
@@ -10,6 +11,9 @@ namespace Spacerocks
         public static GameManager Instance = null;
         public GameObject bulletPrefab;
         public GameObject debrisPrefab;
+        public GameObject[] asteroidTypes;
+
+        private int defaultAsteroidCount = 6;
 
         /// <summary>
         /// Game room size in pixels
@@ -60,6 +64,9 @@ namespace Spacerocks
         /// </summary>
         private void Start()
         {
+            // Spawn asteroid on random position slots
+            for (int i = 0; i < defaultAsteroidCount; i++)
+                Asteroid.SpawnInstance(Random.Range(0, 3)).RandomPositionSlots();
         }
 
         /// <summary>
