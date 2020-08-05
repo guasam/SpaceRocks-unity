@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Codesbiome.U2D
+namespace Codesbiome.U2D.Helpers
 {
     internal class MotionHelper
     {

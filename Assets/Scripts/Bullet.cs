@@ -1,4 +1,4 @@
-﻿using Codesbiome.U2D;
+﻿using Codesbiome.U2D.Helpers;
 using UnityEngine;
 
 namespace Spacerocks
@@ -10,6 +10,7 @@ namespace Spacerocks
 
         private void Awake()
         {
+            // Components cache
             rb = GetComponent<Rigidbody2D>();
         }
 

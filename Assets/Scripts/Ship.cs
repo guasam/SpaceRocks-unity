@@ -1,4 +1,4 @@
-﻿using Codesbiome.U2D;
+﻿using Codesbiome.U2D.Helpers;
 using UnityEngine;
 
 namespace Spacerocks
