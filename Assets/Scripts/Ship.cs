@@ -49,7 +49,7 @@ namespace Spacerocks
 
             // Apply motion thrust
             if (Input.GetKey(KeyCode.UpArrow))
-                MotionHelper.ApplyMotion(rb, direction, motionSpeed);
+                MotionHelper.ApplyThrustMotion(rb, direction, motionSpeed);
 
             // Reset rotation (getting dizzy!!)
             rotation = 0;
