@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3755247267479450226}
   - component: {fileID: 3734187104310086373}
   - component: {fileID: 7685795735572039677}
+  - component: {fileID: 4534889253306530814}
   - component: {fileID: 3621574060014643725}
   m_Layer: 0
   m_Name: Ship
@@ -105,6 +106,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &4534889253306530814
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7656282430543714436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.12968263, y: 0.309195}
+      - {x: -0.26971003, y: -0.0019438826}
+      - {x: -0.10030258, y: -0.27655804}
+      - {x: 0.44031996, y: 0.012100063}
 --- !u!114 &3621574060014643725
 MonoBehaviour:
   m_ObjectHideFlags: 0
