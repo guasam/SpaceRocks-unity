@@ -38,6 +38,10 @@ namespace Spacerocks
             // Rotate right
             if (Input.GetKey(KeyCode.RightArrow))
                 rotation = -1;
+
+            // Shoot bullet
+            if (Input.GetKeyDown(KeyCode.Space))
+                Bullet.SpawnInstance().ShootFromShip(gameObject);
         }
 
         private void FixedUpdate()

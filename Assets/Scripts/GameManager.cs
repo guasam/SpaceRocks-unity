@@ -8,6 +8,7 @@ namespace Spacerocks
         private static CameraAspector ca;
 
         public static GameManager Instance = null;
+        public GameObject bulletPrefab;
 
         /// <summary>
         /// Game room size in pixels
