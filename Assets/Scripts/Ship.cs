@@ -79,6 +79,9 @@ namespace Spacerocks
             {
                 Destroy(collision.gameObject);      // Destroy asteroid
                 Destroy(gameObject);                // Destroy ship
+
+                // Spawn debris
+                Debris.Spawn(collision.transform.position, 10);
             }
         }
     }

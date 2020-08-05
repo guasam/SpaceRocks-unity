@@ -9,6 +9,7 @@ namespace Spacerocks
 
         public static GameManager Instance = null;
         public GameObject bulletPrefab;
+        public GameObject debrisPrefab;
 
         /// <summary>
         /// Game room size in pixels
