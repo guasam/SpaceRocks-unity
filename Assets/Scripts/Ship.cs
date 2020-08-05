@@ -71,5 +71,15 @@ namespace Spacerocks
             });
             GUILayout.EndHorizontal();
         }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            // Collision with Asteroid
+            if (collision.collider.CompareTag("Asteroid"))
+            {
+                Destroy(collision.gameObject);      // Destroy asteroid
+                Destroy(gameObject);                // Destroy ship
+            }
+        }
     }
 }

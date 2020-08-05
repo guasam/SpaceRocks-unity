@@ -37,7 +37,7 @@ namespace Spacerocks
             if (collision.collider.CompareTag("Asteroid"))
             {
                 Destroy(collision.gameObject);  // Destroy asteroid
-                Destroy(gameObject);            // Destroy Bullet
+                Destroy(gameObject);            // Destroy bullet
             }
         }
 
