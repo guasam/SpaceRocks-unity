@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Codesbiome.U2D
 {
     internal class MotionHelper
     {
-        public static void ApplyThrustMotion(Rigidbody2D rb, Vector2 direction, float speed)
+        public static void ThrustMotion(Rigidbody2D rb, Vector2 direction, float speed)
         {
             // Velocity based on our direction and speed
             var velocity = direction * speed * Time.deltaTime;
