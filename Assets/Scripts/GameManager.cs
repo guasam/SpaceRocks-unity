@@ -1,6 +1,4 @@
 ﻿using Codesbiome.U2D;
-using System;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Spacerocks
