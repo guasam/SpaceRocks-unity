@@ -5,6 +5,12 @@ namespace Codesbiome.U2D
 {
     internal class MotionHelper
     {
+        /// <summary>
+        /// Applies thrust motion/velocity to Rigidbody2D (per tick)
+        /// </summary>
+        /// <param name="rb"></param>
+        /// <param name="direction"></param>
+        /// <param name="speed"></param>
         public static void ThrustMotion(Rigidbody2D rb, Vector2 direction, float speed)
         {
             // Velocity based on our direction and speed
@@ -17,6 +23,13 @@ namespace Codesbiome.U2D
             rb.velocity += velocity;
         }
 
+        /// <summary>
+        /// Warp transform position when out of bounds,
+        /// It changes position to spawns back inside assigned boundaries with offset
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <param name="bounds"></param>
+        /// <param name="offset"></param>
         public static void WarpTransform(Transform transform, Vector2 bounds, float offset = 0f)
         {
             // Apply offset to boundaries
