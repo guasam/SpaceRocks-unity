@@ -49,10 +49,24 @@ namespace Spacerocks
 
             // Apply motion thrust
             if (Input.GetKey(KeyCode.UpArrow))
-                MotionHelper.ApplyThrustMotion(rb, direction, motionSpeed);
+                MotionHelper.ThrustMotion(rb, direction, motionSpeed);
+
+            // Apply transform warp
+            MotionHelper.WarpTransform(transform, GameManager.RoomSize, 1f);
 
             // Reset rotation (getting dizzy!!)
             rotation = 0;
+        }
+
+        private void OnGUI()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("POS: " + transform.position.ToString(), new GUIStyle("label")
+            {
+                fontSize = 20,
+                margin = new RectOffset(0, 0, 200, 0)
+            });
+            GUILayout.EndHorizontal();
         }
     }
 }

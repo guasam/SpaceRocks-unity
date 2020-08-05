@@ -7,15 +7,40 @@ namespace Spacerocks
 {
     public class GameManager : MonoBehaviour
     {
-        private CameraAspector ca;
+        private static CameraAspector ca;
 
         public static GameManager Instance = null;
-        public static Vector2 RoomSize;
-        public static int PPU;
 
+        /// <summary>
+        /// Game room size in pixels
+        /// </summary>
+        public static Vector2 RoomSizePixels
+        {
+            get { return ca.roomSize; }
+        }
+
+        /// <summary>
+        /// Pixels per unit
+        /// </summary>
+        public static int PPU
+        {
+            get { return ca.ppu; }
+        }
+
+        /// <summary>
+        /// Game room size in units
+        /// </summary>
+        public static Vector2 RoomSize
+        {
+            get { return RoomSizePixels / PPU; }
+        }
+
+        /// <summary>
+        /// Position vector of center point on screen
+        /// </summary>
         public static Vector2 ScreenCenterPosition
         {
-            get { return new Vector2(RoomSize.x / PPU * 0.5f, RoomSize.y / PPU * 0.5f); }
+            get { return new Vector2(RoomSizePixels.x / PPU * 0.5f, RoomSizePixels.y / PPU * 0.5f); }
         }
 
         /// <summary>
@@ -28,10 +53,6 @@ namespace Spacerocks
 
             // Components cache
             ca = Camera.main.GetComponent<CameraAspector>();
-
-            // Assign properties
-            RoomSize = ca.roomSize;
-            PPU = ca.ppu;
         }
 
         /// <summary>
