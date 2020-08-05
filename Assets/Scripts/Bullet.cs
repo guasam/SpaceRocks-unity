@@ -26,9 +26,18 @@ namespace Spacerocks
         private void FixedUpdate()
         {
             // Destroy bullet gameObject if out of room boundaries
-            //if (transform.position.x > GameManager.RoomSize.x || transform.position.y > GameManager.RoomSize.y)
             if (MotionHelper.OutOfBounds(transform.position, GameManager.RoomSize, 1f))
                 Destroy(gameObject);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            // Collision with Asteroid
+            if (collision.collider.CompareTag("Asteroid"))
+            {
+                Destroy(collision.gameObject);  // Destroy asteroid
+                Destroy(gameObject);            // Destroy Bullet
+            }
         }
 
         /// <summary>
