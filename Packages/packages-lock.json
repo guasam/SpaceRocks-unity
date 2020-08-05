@@ -13,6 +13,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.2d.camera-aspector": {
+      "version": "https://github.com/codesbiome/Unity-2D-CameraAspector.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6aa47eaf267db78ee94b09a28c1c55d07f9bdb3c"
+    },
     "com.unity.2d.common": {
       "version": "3.0.1",
       "depth": 1,
