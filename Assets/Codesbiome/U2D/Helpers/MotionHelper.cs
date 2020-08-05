@@ -32,13 +32,25 @@ namespace Codesbiome.U2D.Helpers
         /// <param name="offset"></param>
         public static void WarpTransform(Transform transform, Vector2 bounds, float offset = 0f)
         {
+            // Offseted boundaries
+            bounds.x += offset;
+            bounds.y += offset;
+
+            // Position cache
+            var posX = transform.position.x;
+            var posY = transform.position.y;
+
             // Position outside horizontal boundaries
-            if (Math.Abs(transform.position.x) > bounds.x + offset)
-                transform.position = new Vector2(-offset, transform.position.y);
+            if (posX > bounds.x)
+                transform.position = new Vector2(-offset, posY);
+            else if (transform.position.x < -offset)
+                transform.position = new Vector2(bounds.x, posY);
 
             // Position outside vertical boundaries
-            if (Math.Abs(transform.position.y) > bounds.y + offset)
-                transform.position = new Vector2(transform.position.x, -offset);
+            if (posY > bounds.y)
+                transform.position = new Vector2(posX, -offset);
+            else if (posY < -offset)
+                transform.position = new Vector2(posX, bounds.y);
         }
 
         /// <summary>
