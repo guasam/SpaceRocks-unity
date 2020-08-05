@@ -40,6 +40,11 @@ namespace Spacerocks
             return Instantiate(GameManager.Instance.asteroidTypes[size]);
         }
 
+        public static GameObject Spawn(Vector2 position, int size = 0)
+        {
+            return Instantiate(GameManager.Instance.asteroidTypes[size], position, Quaternion.identity);
+        }
+
         /// <summary>
         /// Spawn asteroid and return Script instance
         /// </summary>

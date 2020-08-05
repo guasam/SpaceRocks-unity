@@ -45,6 +45,17 @@ namespace Spacerocks
                 // Collision with large asteroid
                 if (collision.collider.name.Contains("Asteroid_large"))
                 {
+                    // Spawn medium asteroid
+                    for (int i = 0; i < 2; i++)
+                        Asteroid.Spawn(collision.transform.position, 1);
+                }
+
+                // Collision with medium asteroid
+                if (collision.collider.name.Contains("Asteroid_medium"))
+                {
+                    // Spawn small asteroid
+                    for (int i = 0; i < 2; i++)
+                        Asteroid.Spawn(collision.transform.position);
                 }
             }
         }
