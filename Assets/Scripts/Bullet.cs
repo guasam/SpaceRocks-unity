@@ -39,12 +39,17 @@ namespace Spacerocks
                 Destroy(collision.gameObject);  // Destroy asteroid
                 Destroy(gameObject);            // Destroy bullet
 
+                // Score points for asteroid smashing
+                var scorePoint = 3;
+
                 // Spawn debris
                 Debris.Spawn(collision.transform.position, 10);
 
                 // Collision with large asteroid
                 if (collision.collider.name.Contains("Asteroid_large"))
                 {
+                    scorePoint = 1;
+
                     // Spawn medium asteroid
                     for (int i = 0; i < 2; i++)
                         Asteroid.Spawn(collision.transform.position, 1);
@@ -53,10 +58,15 @@ namespace Spacerocks
                 // Collision with medium asteroid
                 if (collision.collider.name.Contains("Asteroid_medium"))
                 {
+                    scorePoint = 2;
+
                     // Spawn small asteroid
                     for (int i = 0; i < 2; i++)
                         Asteroid.Spawn(collision.transform.position);
                 }
+
+                // Increase score count
+                GameManager.scoreCount += scorePoint;
             }
         }
 

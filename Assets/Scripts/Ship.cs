@@ -1,5 +1,6 @@
 ﻿using Codesbiome.U2D.Helpers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Spacerocks
 {
@@ -63,6 +64,7 @@ namespace Spacerocks
 
         private void OnGUI()
         {
+            return;
             GUILayout.BeginHorizontal();
             GUILayout.Label("POS: " + transform.position.ToString(), new GUIStyle("label")
             {
@@ -82,6 +84,12 @@ namespace Spacerocks
 
                 // Spawn debris
                 Debris.Spawn(collision.transform.position, 10);
+
+                // Decrease ship counts
+                GameManager.shipsCount--;
+
+                // Reload scene
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
     }

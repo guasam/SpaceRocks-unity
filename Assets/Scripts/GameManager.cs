@@ -5,14 +5,17 @@ namespace Spacerocks
 {
     public class GameManager : MonoBehaviour
     {
-        private static CameraAspector ca;
-
         public static GameManager Instance = null;
+        private static CameraAspector ca;
+        public Font font;
+        public static int scoreCount = 0;
+        public static int shipsCount = 3;
+
         public GameObject bulletPrefab;
         public GameObject debrisPrefab;
         public GameObject[] asteroidTypes;
 
-        private int defaultAsteroidCount = 6;
+        private int defaultAsteroidCount = 12;
 
         /// <summary>
         /// Game room size in pixels
@@ -73,6 +76,25 @@ namespace Spacerocks
         /// </summary>
         private void Update()
         {
+        }
+
+        private void OnGUI()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("SCORE: " + scoreCount, new GUIStyle("label")
+            {
+                fontSize = 20,
+                font = font,
+                margin = new RectOffset(0, 0, 10, 0)
+            });
+
+            GUILayout.Label("SHIPS: " + shipsCount, new GUIStyle("label")
+            {
+                fontSize = 20,
+                font = font,
+                margin = new RectOffset(40, 0, 10, 0)
+            });
+            GUILayout.EndHorizontal();
         }
 
         private void singleton()

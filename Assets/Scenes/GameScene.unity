@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50dcd1909b47a2f4b9589dcd57456a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  font: {fileID: 12800000, guid: 8011a28e75b983a499aba3d9202d3267, type: 3}
   bulletPrefab: {fileID: 1809526246184915657, guid: de56596847bc3d64387396718680edfb, type: 3}
   debrisPrefab: {fileID: 5500936435328888944, guid: fc2e40f04f3b9574c8a8c26c192e270e, type: 3}
   asteroidTypes:
