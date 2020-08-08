@@ -112,12 +112,23 @@ namespace Spacerocks
             // Destroy ship object
             Destroy(ship);
 
-            // Decrease ship counts
-            shipsCount--;
+            // Ship counts now
+            var shipsAvailable = shipsCount - 1;
 
             // Wait and reload scene
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            // No ships in stock, game over! Load OverScene
+            if (shipsAvailable < 0)
+                SceneManager.LoadScene("OverScene", LoadSceneMode.Single);
+            else
+            {
+                // Decrease total ship counts
+                shipsCount--;
+
+                // Load GameScene Again
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
 
         public void DestroyShipAndReload(GameObject ship)
