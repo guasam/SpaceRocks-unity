@@ -97,8 +97,7 @@ namespace Spacerocks
                 audioSource.PlayOneShot(dieAudioClip);
 
                 // Destroy
-                Destroy(collision.gameObject);      // Destroy asteroid
-                Destroy(gameObject);                // Destroy ship
+                Destroy(collision.gameObject);      // asteroid
 
                 // Spawn debris
                 Debris.Spawn(collision.transform.position, 10);
@@ -106,8 +105,8 @@ namespace Spacerocks
                 // Decrease ship counts
                 GameManager.shipsCount--;
 
-                // Reload scene
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // Destroy Ship & Reload scene
+                GameManager.Instance.DestroyShipAndReload(gameObject);
             }
         }
     }

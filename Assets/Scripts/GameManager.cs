@@ -1,5 +1,7 @@
 ﻿using Codesbiome.U2D;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Spacerocks
 {
@@ -103,6 +105,18 @@ namespace Spacerocks
         {
             if (Instance == null) Instance = this;
             else if (Instance != this) Destroy(gameObject);
+        }
+
+        private IEnumerator destroyShipAndReloadScene(GameObject ship)
+        {
+            Destroy(ship);
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void DestroyShipAndReload(GameObject ship)
+        {
+            StartCoroutine(destroyShipAndReloadScene(ship));
         }
     }
 }
