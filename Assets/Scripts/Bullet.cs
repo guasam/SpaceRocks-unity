@@ -72,7 +72,9 @@ namespace Spacerocks
                 }
 
                 // Increase score count
-                GameManager.scoreCount += scorePoint;
+                //GameManager.scoreCount += scorePoint;
+
+                GameManager.IncreaseScore(scorePoint);
             }
         }
 

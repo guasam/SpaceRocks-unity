@@ -11,6 +11,10 @@ namespace Spacerocks
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 Debug.Log("Loading GameScene");
+
+                if (SceneManager.GetActiveScene().name != "StartScene")
+                    GameManager.ResetCounters();
+
                 SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
             }
         }

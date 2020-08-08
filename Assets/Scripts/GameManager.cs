@@ -10,8 +10,9 @@ namespace Spacerocks
         public static GameManager Instance = null;
         private static CameraAspector ca;
         public Font font;
-        public static int scoreCount = 0;
+        public static int scoreCount = 999;
         public static int shipsCount = 1;
+        public static int winScore = 1000;
 
         public AudioSource audioSource;
 
@@ -134,6 +135,22 @@ namespace Spacerocks
         public void DestroyShipAndReload(GameObject ship)
         {
             StartCoroutine(destroyShipAndReloadScene(ship));
+        }
+
+        public static void IncreaseScore(int scorePoint = 1)
+        {
+            // Increase score count by points
+            scoreCount += scorePoint;
+
+            // Score has reached win limit, Load WinScene
+            if (scoreCount >= winScore)
+                SceneManager.LoadScene("WinScene", LoadSceneMode.Single);
+        }
+
+        public static void ResetCounters()
+        {
+            scoreCount = 0;
+            shipsCount = 3;
         }
     }
 }
