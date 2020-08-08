@@ -109,7 +109,13 @@ namespace Spacerocks
 
         private IEnumerator destroyShipAndReloadScene(GameObject ship)
         {
+            // Destroy ship object
             Destroy(ship);
+
+            // Decrease ship counts
+            shipsCount--;
+
+            // Wait and reload scene
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

@@ -96,14 +96,11 @@ namespace Spacerocks
                 // Play die audio
                 audioSource.PlayOneShot(dieAudioClip);
 
-                // Destroy
-                Destroy(collision.gameObject);      // asteroid
+                // Destroy asteroid
+                Destroy(collision.gameObject);
 
                 // Spawn debris
                 Debris.Spawn(collision.transform.position, 10);
-
-                // Decrease ship counts
-                GameManager.shipsCount--;
 
                 // Destroy Ship & Reload scene
                 GameManager.Instance.DestroyShipAndReload(gameObject);
