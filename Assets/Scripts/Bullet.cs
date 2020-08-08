@@ -6,7 +6,10 @@ namespace Spacerocks
     public class Bullet : MonoBehaviour
     {
         private Rigidbody2D rb;
-        private float speed = 20f;
+        private float speed = 10f;
+
+        public AudioSource audioSource;
+        public AudioClip dieAudioClip;
 
         private void Awake()
         {

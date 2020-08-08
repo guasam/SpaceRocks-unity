@@ -12,8 +12,7 @@ namespace Spacerocks
         private int rotation = 0;
         private Vector2 direction = Vector2.right;
 
-        public AudioSource audioSource;
-        public AudioClip zapSoundClip;
+        public AudioClip zapAudioClip;
 
         /// <summary>
         /// Awake is called when script instance is being loaded
@@ -47,7 +46,7 @@ namespace Spacerocks
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Play zap sound
-                audioSource.PlayOneShot(zapSoundClip);
+                GameManager.Instance.audioSource.PlayOneShot(zapAudioClip);
 
                 // Spawn bullet
                 Bullet.SpawnInstance().ShootFromShip(gameObject);

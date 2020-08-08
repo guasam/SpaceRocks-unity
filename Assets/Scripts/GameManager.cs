@@ -11,6 +11,8 @@ namespace Spacerocks
         public static int scoreCount = 0;
         public static int shipsCount = 3;
 
+        public AudioSource audioSource;
+
         public GameObject bulletPrefab;
         public GameObject debrisPrefab;
         public GameObject[] asteroidTypes;

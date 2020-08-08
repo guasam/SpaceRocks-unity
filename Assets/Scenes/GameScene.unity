@@ -343,12 +343,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240946368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 16, y: 9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1528743654}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528743653
 GameObject:
@@ -377,7 +377,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1240946370}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -394,6 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   font: {fileID: 12800000, guid: 8011a28e75b983a499aba3d9202d3267, type: 3}
+  audioSource: {fileID: 0}
   bulletPrefab: {fileID: 1809526246184915657, guid: de56596847bc3d64387396718680edfb, type: 3}
   debrisPrefab: {fileID: 5500936435328888944, guid: fc2e40f04f3b9574c8a8c26c192e270e, type: 3}
   asteroidTypes:
@@ -427,6 +429,10 @@ PrefabInstance:
       propertyPath: dieSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 9f4f9447d3664814381ffdb5706a5f0e, type: 3}
+    - target: {fileID: 3621574060014643725, guid: bd97704606917804b9a707bd10313120, type: 3}
+      propertyPath: zapAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2fab88d483b8b3141a7fa2adda7fccc6, type: 3}
     - target: {fileID: 3755247267479450226, guid: bd97704606917804b9a707bd10313120, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
