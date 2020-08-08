@@ -70,6 +70,8 @@ namespace Spacerocks
         /// </summary>
         private void Start()
         {
+            if (SceneManager.GetActiveScene().name != "GameScene") return;
+
             // Spawn asteroid on random position slots
             for (int i = 0; i < defaultAsteroidCount; i++)
                 Asteroid.SpawnInstance(Random.Range(0, 3)).RandomPositionSlots();
@@ -80,10 +82,20 @@ namespace Spacerocks
         /// </summary>
         private void Update()
         {
+            if (SceneManager.GetActiveScene().name == "StartScene")
+            {
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    Debug.Log("loading scene");
+                    SceneManager.LoadScene("GameScene");
+                }
+            }
         }
 
         private void OnGUI()
         {
+            if (SceneManager.GetActiveScene().name != "GameScene") return;
+
             GUILayout.BeginHorizontal();
             GUILayout.Label("SCORE: " + scoreCount, new GUIStyle("label")
             {

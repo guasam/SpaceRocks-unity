@@ -433,6 +433,10 @@ PrefabInstance:
       propertyPath: zapAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2fab88d483b8b3141a7fa2adda7fccc6, type: 3}
+    - target: {fileID: 3621574060014643725, guid: bd97704606917804b9a707bd10313120, type: 3}
+      propertyPath: dieAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f4f9447d3664814381ffdb5706a5f0e, type: 3}
     - target: {fileID: 3755247267479450226, guid: bd97704606917804b9a707bd10313120, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16
