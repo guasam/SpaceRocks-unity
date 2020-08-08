@@ -1,4 +1,5 @@
 ﻿using Codesbiome.U2D.Helpers;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,8 +12,10 @@ namespace Spacerocks
         private float rotationSpeed = 5f;
         private int rotation = 0;
         private Vector2 direction = Vector2.right;
+        private AudioSource audioSource;
 
         public AudioClip zapAudioClip;
+        public AudioClip dieAudioClip;
 
         /// <summary>
         /// Awake is called when script instance is being loaded
@@ -28,6 +31,9 @@ namespace Spacerocks
         /// </summary>
         private void Start()
         {
+            // Game audio source
+            audioSource = GameManager.Instance.audioSource;
+
             // Set position to center of screen
             transform.position = GameManager.ScreenCenterPosition;
         }
@@ -46,7 +52,7 @@ namespace Spacerocks
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 // Play zap sound
-                GameManager.Instance.audioSource.PlayOneShot(zapAudioClip);
+                audioSource.PlayOneShot(zapAudioClip);
 
                 // Spawn bullet
                 Bullet.SpawnInstance().ShootFromShip(gameObject);
@@ -87,6 +93,10 @@ namespace Spacerocks
             // Collision with Asteroid
             if (collision.collider.CompareTag("Asteroid"))
             {
+                // Play die audio
+                audioSource.PlayOneShot(dieAudioClip);
+
+                // Destroy
                 Destroy(collision.gameObject);      // Destroy asteroid
                 Destroy(gameObject);                // Destroy ship
 

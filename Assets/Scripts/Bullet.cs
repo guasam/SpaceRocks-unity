@@ -8,7 +8,6 @@ namespace Spacerocks
         private Rigidbody2D rb;
         private float speed = 10f;
 
-        public AudioSource audioSource;
         public AudioClip dieAudioClip;
 
         private void Awake()
@@ -39,6 +38,10 @@ namespace Spacerocks
             // Collision with Asteroid
             if (collision.collider.CompareTag("Asteroid"))
             {
+                // Play die sound
+                GameManager.Instance.audioSource.PlayOneShot(dieAudioClip);
+
+                // Destroy
                 Destroy(collision.gameObject);  // Destroy asteroid
                 Destroy(gameObject);            // Destroy bullet
 
