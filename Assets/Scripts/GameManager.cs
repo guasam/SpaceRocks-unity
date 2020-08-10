@@ -10,8 +10,8 @@ namespace Spacerocks
         public static GameManager Instance = null;
         private static CameraAspector ca;
         public Font font;
-        public static int scoreCount = 999;
-        public static int shipsCount = 1;
+        public static int scoreCount = 0;
+        public static int shipsCount = 3;
         public static int winScore = 1000;
 
         public AudioSource audioSource;
