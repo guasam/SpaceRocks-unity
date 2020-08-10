@@ -61,7 +61,11 @@ namespace Codesbiome.U2D.Helpers
         /// <returns></returns>
         public static bool OutOfBounds(Vector2 position, Vector2 bounds, float offset = 0f)
         {
-            return position.x > bounds.x + offset || position.y > bounds.y + offset;
+            return position.x > bounds.x + offset
+                || position.y > bounds.y + offset
+                || position.x < 0f - offset
+                || position.y < 0f - offset
+            ;
         }
     }
 }
