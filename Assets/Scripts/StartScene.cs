@@ -19,13 +19,13 @@ namespace Spacerocks
             if (sceneName == "OverScene" || sceneName == "WinScene")
             {
                 yourScorePrefix = yourScoreText.text;
-                yourScoreText.text = yourScorePrefix + GameManager.scoreCount;
+                yourScoreText.text = yourScorePrefix + GameManager.ScoreCount;
             }
 
             if (sceneName == "WinScene")
             {
                 shipsSavedPrefix = shipsSavedText.text;
-                shipsSavedText.text = shipsSavedPrefix + GameManager.shipsCount;
+                shipsSavedText.text = shipsSavedPrefix + GameManager.ShipsCount;
             }
         }
 

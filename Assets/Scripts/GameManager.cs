@@ -10,9 +10,9 @@ namespace Spacerocks
         public static GameManager Instance = null;
         private static CameraAspector ca;
         public Font font;
-        public static int scoreCount = 0;
-        public static int shipsCount = 3;
-        public static int winScore = 1000;
+        public static int ScoreCount = 0;
+        public static int ShipsCount = 3;
+        public static int WinScore = 1000;
 
         public AudioSource audioSource;
 
@@ -86,14 +86,14 @@ namespace Spacerocks
         private void OnGUI()
         {
             GUILayout.BeginHorizontal();
-            GUILayout.Label("SCORE: " + scoreCount, new GUIStyle("label")
+            GUILayout.Label("SCORE: " + ScoreCount, new GUIStyle("label")
             {
                 fontSize = 20,
                 font = font,
                 margin = new RectOffset(0, 0, 10, 0)
             });
 
-            GUILayout.Label("SHIPS: " + shipsCount, new GUIStyle("label")
+            GUILayout.Label("SHIPS: " + ShipsCount, new GUIStyle("label")
             {
                 fontSize = 20,
                 font = font,
@@ -114,7 +114,7 @@ namespace Spacerocks
             Destroy(ship);
 
             // Ship counts now
-            var shipsAvailable = shipsCount - 1;
+            var shipsAvailable = ShipsCount - 1;
 
             // Wait and reload scene
             yield return new WaitForSeconds(2f);
@@ -125,7 +125,7 @@ namespace Spacerocks
             else
             {
                 // Decrease total ship counts
-                shipsCount--;
+                ShipsCount--;
 
                 // Load GameScene Again
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -140,17 +140,17 @@ namespace Spacerocks
         public static void IncreaseScore(int scorePoint = 1)
         {
             // Increase score count by points
-            scoreCount += scorePoint;
+            ScoreCount += scorePoint;
 
             // Score has reached win limit, Load WinScene
-            if (scoreCount >= winScore)
+            if (ScoreCount >= WinScore)
                 SceneManager.LoadScene("WinScene", LoadSceneMode.Single);
         }
 
         public static void ResetCounters()
         {
-            scoreCount = 0;
-            shipsCount = 3;
+            ScoreCount = 0;
+            ShipsCount = 3;
         }
     }
 }
