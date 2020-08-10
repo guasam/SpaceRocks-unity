@@ -76,18 +76,6 @@ namespace Spacerocks
             rotation = 0;
         }
 
-        private void OnGUI()
-        {
-            return;
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("POS: " + transform.position.ToString(), new GUIStyle("label")
-            {
-                fontSize = 20,
-                margin = new RectOffset(0, 0, 200, 0)
-            });
-            GUILayout.EndHorizontal();
-        }
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
             // Collision with Asteroid
